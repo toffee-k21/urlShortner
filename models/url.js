@@ -8,7 +8,8 @@ const URLSchema = new mongoose.Schema({
   redirectUrl:{
     type:String,
     required:true,
-  }
+  },
+  visitHistory:[]
 });
 
 const URL = mongoose.model('url', URLSchema)

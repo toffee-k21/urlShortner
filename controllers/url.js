@@ -18,10 +18,14 @@ return res.json(result)
 
 const HandleGetReq = async(req,res) =>{
 // console.log(req.params.shortId)
-const mainUrl = await URL.find({shortID:req.params.shortId})
-// console.log(mainUrl)
+const mainUrl = await URL.findOneAndUpdate({shortID:req.params.shortId},{
+$push : { visitHistory : Date.now() }
+
+})
+console.log(mainUrl)
 // if(mainUrl == '')
-res.redirect('https://'+ mainUrl[0].redirectUrl)
+// console.log()
+res.redirect('https://'+ mainUrl.redirectUrl)
 }
 
 module.exports = {HandlePostUrl,HandleGetReq}
