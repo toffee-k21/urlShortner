@@ -28,4 +28,11 @@ console.log(mainUrl)
 res.redirect('https://'+ mainUrl.redirectUrl)
 }
 
-module.exports = {HandlePostUrl,HandleGetReq}
+const showAllurls = async(req,res)=>{
+    const data = await URL.find({})
+    console.log(data)
+res.end(`
+<html><head></head><body><h2><ol>${data.map((e)=>`<li>${e.shortID}-${e.redirectUrl}</li>`).join('')}</ol></h2></body></html>`)
+}
+
+module.exports = {HandlePostUrl,HandleGetReq , showAllurls}

@@ -13,15 +13,16 @@ const PORT = 8001
 app.use(express.urlencoded({ extended: false }));
 
 // console.log(path.resolve('./views'))
-app.set('view engine', 'ejs');
-app.set('views', path.resolve('./views'))
+//ejs setup
+app.set('view engine', 'ejs');//bta do konsa template engine use kr rhe ho
+app.set('views', path.resolve('./views'))//kaha pr h
 
 
 app.use('/url',useUrlRouter)
-app.get('/ejs', (req,res)=>{
-    // res.end('home')
-    res.render('home')
-})
+// app.get('/ejs', (req,res)=>{
+//     // res.end('home')
+//     res.render('home')//this syntax is used for template render
+// })
 
 
 app.listen(PORT,()=>console.log(`server started at port : ${PORT}`))
