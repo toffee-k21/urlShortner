@@ -22,7 +22,7 @@ const mainUrl = await URL.findOneAndUpdate({shortID:req.params.shortId},{
 $push : { visitHistory : Date.now() }
 
 })
-console.log(mainUrl)
+// console.log(mainUrl)
 // if(mainUrl == '')
 // console.log()
 res.redirect('https://'+ mainUrl.redirectUrl)
@@ -30,9 +30,10 @@ res.redirect('https://'+ mainUrl.redirectUrl)
 
 const showAllurls = async(req,res)=>{
     const data = await URL.find({})
-    console.log(data)
-res.end(`
-<html><head></head><body><h2><ol>${data.map((e)=>`<li>${e.shortID}-${e.redirectUrl}</li>`).join('')}</ol></h2></body></html>`)
+    // console.log(data)
+// res.end(`
+// <html><head></head><body><h2><ol>${data.map((e)=>`<li>${e.shortID}-${e.redirectUrl}</li>`).join('')}</ol></h2></body></html>`)
+res.render('home',{data:data})
 }
 
 module.exports = {HandlePostUrl,HandleGetReq , showAllurls}

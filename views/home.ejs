@@ -8,7 +8,10 @@
 <body>
     <h1>
         <ol>
-         <li></li>
+       <%= console.log(data) %>
+       <% data.forEach(url => { %>
+        <li><%= url.shortID %> - <%= url.redirectUrl %></li>
+       <% }) %>
         </ol>
     </h1>  
 </body>
