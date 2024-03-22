@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>server side rendering</title>
-</head>
-<body>
-    <h1>
-        <ol>
-       <%= console.log(data) %>
-       <% data.forEach(url => { %>
-        <li><%= url.shortID %> - <%= url.redirectUrl %></li>
-       <% }) %>
-        </ol>
-    </h1>  
-</body>
+  </head>
+  <body>
+    <h1>url shortner</h1>
+<label>create your url</label>
+<input type="text" placeholder="enter your url">
+    
+    <ol>
+      <%= console.log(data) %> <% data.forEach(url => { %>
+      <li><%= url.shortID %> - <%= url.redirectUrl %></li>
+      <% }) %>
+    </ol>
+  </body>
 </html>
