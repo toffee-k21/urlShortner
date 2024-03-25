@@ -7,9 +7,15 @@
   </head>
   <body>
     <h1>url shortner</h1>
-<label>create your url</label>
-<input type="text" placeholder="enter your url">
-    
+    <div>
+      <form action="/url" method="POST">
+        <!-- ish url pr post request mr do -->
+      <label>create your url</label>
+      <input type="text" name="redirectUrl" placeholder="enter your url" />
+      <button type="submit">create</button>
+      </form>
+    </div>
+
     <ol>
       <%= console.log(data) %> <% data.forEach(url => { %>
       <li><%= url.shortID %> - <%= url.redirectUrl %></li>

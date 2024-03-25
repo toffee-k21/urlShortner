@@ -5,7 +5,7 @@ const urlRouter = express.Router()
 
 urlRouter.post('/', HandlePostUrl)
 
-urlRouter.get('/showurls', showAllurls)
+urlRouter.get('/', showAllurls)
 
 urlRouter.get('/:shortId', HandleGetReq)
 

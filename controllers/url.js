@@ -13,7 +13,10 @@ const result = await URL.create({
     shortID: shortID,
     redirectUrl: redirectUrl,
 })
-return res.json(result)
+
+const data = await URL.find({})
+
+return res.render('home', {data:data})
 }
 
 const HandleGetReq = async(req,res) =>{
@@ -25,7 +28,7 @@ $push : { visitHistory : Date.now() }
 // console.log(mainUrl)
 // if(mainUrl == '')
 // console.log()
-res.redirect('https://'+ mainUrl.redirectUrl)
+res.redirect(mainUrl.redirectUrl)
 }
 
 const showAllurls = async(req,res)=>{
