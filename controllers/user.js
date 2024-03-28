@@ -1,5 +1,5 @@
 const user = require("../models/user")
-
+const {v4: uuidv4} = require('uuid')
 const handleInputSignIn = (req,res) =>{
     res.render('signin')
     }
@@ -31,6 +31,9 @@ password:val.password
 if(!u){
 return res.render('signup',{mess:'user not found \n please create a new user by signing Up'})
 }
+
+const sessionId = uuidv4();
+res.cookie("uid",sessionId)
 res.redirect('/url')
 
 }
