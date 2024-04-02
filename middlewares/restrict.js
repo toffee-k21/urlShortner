@@ -1,9 +1,11 @@
 const restrictLoggedInUserOnly = (req,res,next) =>{
-    console.log(req)
     const pass = req.cookies.uid
-
+    // console.log(req)
+// const mapUserAndUrls = new Map()
     if(!pass){return res.redirect('/signin')}
     // return res.redirect('/url')
+    req.user = pass
+    // pass = req.user
     next()
 }
 

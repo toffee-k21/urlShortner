@@ -11,7 +11,7 @@ const handleInputSignIn = (req,res) =>{
 const handleSignup = async(req,res)=>{
 
 const val = req.body 
-console.log(val)
+// console.log(val)
 await user.create({
     userName: val.name,
     email:val.email,
