@@ -1,12 +1,20 @@
+const { getUser } = require("../services/auth")
+
 const restrictLoggedInUserOnly = (req,res,next) =>{
     const pass = req.cookies.uid
-    // console.log(req)
-// const mapUserAndUrls = new Map()
     if(!pass){return res.redirect('/signin')}
-    // return res.redirect('/url')
-    req.user = pass
-    // pass = req.user
-    next()
+
+    // if(pass == )
+    // console.log(pass)
+    const val = getUser(pass)
+    // console.log(val)
+
+    if (val) {    
+        req.user = val
+        next()
+    }
+else{res.redirect("/signup")}
+
 }
 
 module.exports = {

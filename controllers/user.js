@@ -1,5 +1,6 @@
 const user = require("../models/user")
 const {v4: uuidv4} = require('uuid')
+const { setUser } = require("../services/auth")
 const handleInputSignIn = (req,res) =>{
     res.render('signin')
     }
@@ -33,9 +34,10 @@ return res.render('signup',{mess:'user not found \n please create a new user by 
 }
 
 const sessionId = uuidv4();
+// const token = setUser(u)
 res.cookie("uid",sessionId)
+setUser(sessionId,u);
 res.redirect('/url')
-
 }
 
 module.exports = {handleSignup,handleInputSignIn,handleInputSignUp,handleSignIn}
