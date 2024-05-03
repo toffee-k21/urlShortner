@@ -23,7 +23,7 @@ app.set('views', path.resolve('./views'));//kaha pr h
 
 app.use('/url',restrictLoggedInUserOnly,useUrlRouter);
 app.use('/user',signRouter);
-app.use('/:shortId',async (req,res)=>{
+app.get('/show/:shortId',async (req,res)=>{
     const mainUrl = await URL.findOneAndUpdate(
         { shortID: req.params.shortId },
         {
