@@ -7,6 +7,6 @@ urlRouter.post('/', HandlePostUrl)
 
 urlRouter.get('/', showAllurls)
 
-urlRouter.get('/:shortId', HandleGetReq)
+// urlRouter.get('/:shortId', HandleGetReq)
 
 module.exports = urlRouter

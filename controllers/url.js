@@ -21,16 +21,16 @@ const HandlePostUrl = async (req, res) => {
   return res.redirect("url/");
 };
 
-const HandleGetReq = async (req, res) => {
-  const mainUrl = await URL.findOneAndUpdate(
-    { shortID: req.params.shortId },
-    {
-      $push: { visitHistory: Date.now() },
-    }
-  );
+// const HandleGetReq = async (req, res) => {
+//   const mainUrl = await URL.findOneAndUpdate(
+//     { shortID: req.params.shortId },
+//     {
+//       $push: { visitHistory: Date.now() },
+//     }
+//   );
 
-  res.redirect(mainUrl.redirectUrl);
-};
+//   res.redirect(mainUrl.redirectUrl);
+// };
 
 const showAllurls = async (req, res) => {
 
@@ -41,4 +41,6 @@ const showAllurls = async (req, res) => {
   res.render("home", { data: data });
 };
 
-module.exports = { HandlePostUrl, HandleGetReq, showAllurls };
+module.exports = { HandlePostUrl,
+  //  HandleGetReq, 
+   showAllurls };
