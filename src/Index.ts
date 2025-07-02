@@ -1,11 +1,12 @@
-const express = require('express') 
-const useUrlRouter = require('./routes/url')
-const mongoose = require('mongoose')
-const path = require('path')
-const signRouter =  require('./routes/user')
-const cookieParser = require('cookie-parser')
-const { restrictLoggedInUserOnly } = require('./middlewares/restrict')
-const URL = require("./models/url")
+import express from 'express';
+import urlRouter from './routes/url';
+import mongoose from 'mongoose';
+import path from 'path';
+import signRouter from './routes/user';
+import cookieParser from 'cookie-parser';
+import { restrictLoggedInUserOnly } from './middlewares/restrict';
+import URL from './models/url';
+
 
 mongoose.connect('mongodb://localhost:27017/urlShortner')
 .then((r)=>console.log('mongoDB connected!'))
@@ -23,7 +24,7 @@ app.set('views', path.resolve('./views'));//kaha pr h
 app.get('/',(req, res)=>{
   res.send("hello");
 })
-app.use('/url',restrictLoggedInUserOnly,useUrlRouter);
+app.use('/url',restrictLoggedInUserOnly,urlRouter);
 app.use('/auth',signRouter);
 app.get('/:shortId',async (req,res)=>{
     const mainUrl = await URL.findOneAndUpdate(
